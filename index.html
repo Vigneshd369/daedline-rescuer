@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deadline Rescuer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <div class="brand">Deadline Rescuer</div>
+  <p class="hero-label" id="heroLabel">Add a deadline to start the clock</p>
+  <div class="clock" id="clock" aria-live="off">--:--:--</div>
+  <p class="hero-sub" id="heroSub">Nothing is due yet. Enjoy it while it lasts.</p>
+</header>
+
+<main class="layout">
+  <section class="panel">
+    <h2>New deadline</h2>
+    <form id="taskForm">
+      <label>What is due
+        <input id="title" required maxlength="80" placeholder="OOSE report">
+      </label>
+      <label>Subject
+        <input id="subject" maxlength="40" placeholder="Software Engineering">
+      </label>
+      <label>Due date and time
+        <input id="due" type="datetime-local" required>
+      </label>
+      <label>Hours of work needed
+        <input id="hours" type="number" min="0.5" step="0.5" value="4" required>
+      </label>
+      <button class="btn primary" type="submit">Add deadline</button>
+    </form>
+
+    <h2 class="mt">Your daily capacity</h2>
+    <label>Hours you can study per day
+      <input id="capacity" type="number" min="1" max="16" step="0.5" value="5">
+    </label>
+    <button class="btn ghost" id="sampleBtn" type="button">Load sample deadlines</button>
+    <button class="btn ghost" id="clearDone" type="button">Clear finished</button>
+  </section>
+
+  <section class="col">
+    <div class="panel plan" id="plan"></div>
+    <div class="panel">
+      <h2>Rescue queue <span class="hint">most urgent first</span></h2>
+      <ul id="list" class="list"></ul>
+    </div>
+  </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
